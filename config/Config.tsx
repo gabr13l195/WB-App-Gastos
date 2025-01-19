@@ -3,12 +3,13 @@ import { getAuth } from "firebase/auth";
 import { getDatabase } from "firebase/database";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCx6ZGVMxDBHP2UpyURAJiqO5o-DiytR1U",
-    authDomain: "wb-prueba.firebaseapp.com",
-    projectId: "wb-prueba",
-    storageBucket: "wb-prueba.firebasestorage.app",
-    messagingSenderId: "29586165432",
-    appId: "1:29586165432:web:c7e1341cf14e192521ee4d"
+    apiKey: "AIzaSyDWqn7ccegfqyLBPHvgAcGEQXVMFC9Fzx8",
+    authDomain: "wb-prueba-appgastos.firebaseapp.com",
+    databaseURL: "https://wb-prueba-appgastos-default-rtdb.firebaseio.com/",
+    projectId: "wb-prueba-appgastos",
+    storageBucket: "wb-prueba-appgastos.firebasestorage.app",
+    messagingSenderId: "512017855394",
+    appId: "1:512017855394:web:91736e83592ae6742238fb"
 };
 
 const app = initializeApp(firebaseConfig);
