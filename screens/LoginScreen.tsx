@@ -56,10 +56,8 @@ export default function LoginScreen({ navigation }: any) {
         >
             <ScrollView contentContainerStyle={styles.scrollContainer} keyboardShouldPersistTaps="handled">
                 <Text style={styles.title}>Iniciar Sesión</Text>
-
-                {/* Imagen añadida */}
                 <Image
-                    source={require('../assets/huella.png')} // Asegúrate de que la ruta sea correcta
+                    source={require('../assets/hucha.png')}
                     style={styles.image}
                 />
 
@@ -111,7 +109,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
     },
     image: {
-        width: 100, // Ajusta el tamaño de la imagen
+        width: 100,
         height: 100,
         alignSelf: 'center',
         marginBottom: 20,

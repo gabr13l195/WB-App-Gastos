@@ -13,7 +13,7 @@ export default function WelcomeScreen({ route }: any) {
     return (
         <Tab.Navigator
             screenOptions={{
-                headerShown: false, // Oculta la barra superior para todas las pestañas
+                headerShown: false, 
             }}
         >
             <Tab.Screen

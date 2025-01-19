@@ -1,4 +1,4 @@
-import { Alert, StyleSheet, Text, View, TextInput, TouchableOpacity, KeyboardAvoidingView, ScrollView, Platform } from 'react-native';
+import { Alert, StyleSheet, Text, View, TextInput, TouchableOpacity, KeyboardAvoidingView, ScrollView, Platform, Image } from 'react-native';
 import React, { useState } from 'react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth, db } from '../config/Config';
@@ -64,6 +64,10 @@ export default function RegisterScreen({ navigation }: any) {
         >
             <ScrollView contentContainerStyle={styles.scrollContainer} keyboardShouldPersistTaps="handled">
                 <Text style={styles.title}>Registro</Text>
+                <Image
+                    source={require('../assets/dinero.png')} 
+                    style={styles.image}
+                />
                 <TextInput
                     style={styles.input}
                     placeholder="Nombre"
@@ -160,6 +164,12 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         marginTop: 20,
     },
+    image: {
+        width: 100,
+        height: 100,
+        alignSelf: 'center',
+        marginBottom: 20,
+    }
 });
 
 

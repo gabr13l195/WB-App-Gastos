@@ -6,6 +6,7 @@ import {
     StyleSheet,
     TouchableOpacity,
     Alert,
+    Image,
 } from 'react-native';
 import { auth, db } from '../config/Config';
 import { ref, push } from 'firebase/database';
@@ -22,9 +23,7 @@ export default function Operaciones() {
     const userId = auth.currentUser?.uid;
 
     const formatPrecio = (value: string) => {
-        // Reemplazar comas por puntos y eliminar caracteres no numéricos (excepto el punto)
         const cleanedValue = value.replace(/,/g, '.').replace(/[^0-9.]/g, '');
-        // Convertir a número y limitar a dos decimales
         const formattedValue = parseFloat(cleanedValue).toFixed(2);
         return isNaN(Number(formattedValue)) ? '' : `$${formattedValue}`;
     };
@@ -41,7 +40,6 @@ export default function Operaciones() {
             return;
         }
 
-        // Validar que precio y cantidad sean valores numéricos positivos
         const precioNumerico = parseFloat(form.precio.replace('$', ''));
         const cantidadNumerica = parseInt(form.cantidad, 10);
 
@@ -55,7 +53,6 @@ export default function Operaciones() {
             return;
         }
 
-        // Validar montos menores a $1 o mayores a $20
         if (precioNumerico < 1 || precioNumerico > 20) {
             Alert.alert(
                 'Advertencia',
@@ -75,7 +72,7 @@ export default function Operaciones() {
         const operacionesRef = ref(db, `usuarios/${userId}/operaciones`);
         push(operacionesRef, {
             ...form,
-            precio: precio.toFixed(2), // Guardar el precio con dos decimales
+            precio: precio.toFixed(2),
             cantidad: cantidad,
         })
             .then(() => {
@@ -90,6 +87,10 @@ export default function Operaciones() {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Operaciones</Text>
+            <Image
+                source={require('../assets/dinero-volando.png')}
+                style={styles.image}
+            />
             <TextInput
                 style={styles.input}
                 placeholder="Precio"
@@ -97,7 +98,7 @@ export default function Operaciones() {
                 keyboardType="decimal-pad"
                 value={form.precio}
                 onChangeText={(text) =>
-                    setForm((prev) => ({ ...prev, precio: text.replace(',', '.') })) // Reemplazar coma por punto
+                    setForm((prev) => ({ ...prev, precio: text.replace(',', '.') })) 
                 }
                 onBlur={() =>
                     setForm((prev) => ({ ...prev, precio: formatPrecio(prev.precio) }))
@@ -178,5 +179,11 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: 18,
         fontWeight: 'bold',
+    },
+    image: {
+        width: 100,
+        height: 100,
+        alignSelf: 'center',
+        marginBottom: 20,
     },
 });

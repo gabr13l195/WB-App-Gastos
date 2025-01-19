@@ -79,7 +79,7 @@ export default function PerfilScreen({ navigation }: any) {
     const handleLogout = () => {
         auth.signOut()
             .then(() => {
-                navigation.replace('Login'); // Redirige al inicio de sesión
+                navigation.replace('Login');
             })
             .catch((error) => {
                 Alert.alert('Error', 'Hubo un problema al cerrar sesión.');

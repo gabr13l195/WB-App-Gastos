@@ -7,7 +7,7 @@ export default function HomeScreen({ navigation }: any) {
             <Text style={styles.title}>Welcome</Text>
 
             <Image
-                source={require('../assets/tienda-animales.png')} // Cambia la URL por la ubicación local de tu imagen
+                source={require('../assets/salario.png')}
                 style={styles.logo}
             />
 
