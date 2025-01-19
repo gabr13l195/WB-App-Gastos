@@ -1,9 +1,9 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
-import HistorialScreen from './AñadirMascota';
+import Historial from './Historial';
 import Perfil from './Perfil';
-import Mascotas from './Mascotas';
+import Operaciones from './Operaciones';
 
 const Tab = createBottomTabNavigator();
 
@@ -17,21 +17,21 @@ export default function WelcomeScreen({ route }: any) {
             }}
         >
             <Tab.Screen
-                name="Mascotas"
-                component={Mascotas}
+                name="Operaciones"
+                component={Operaciones}
                 options={{
                     tabBarIcon: ({ color, size }) => (
-                        <Ionicons name="paw-sharp" color={color} size={size} />
+                        <Ionicons name="cash-sharp" color={color} size={size} />
                     ),
                 }}
             />
 
             <Tab.Screen
-                name="Añadir"
-                component={HistorialScreen}
+                name="Historial"
+                component={Historial}
                 options={{
                     tabBarIcon: ({ color, size }) => (
-                        <Ionicons name="add-circle" color={color} size={size} />
+                        <Ionicons name="podium-sharp" color={color} size={size} />
                     ),
                 }}
             />
@@ -42,7 +42,7 @@ export default function WelcomeScreen({ route }: any) {
                 initialParams={{ cedula }}
                 options={{
                     tabBarIcon: ({ color, size }) => (
-                        <Ionicons name="person-outline" color={color} size={size} />
+                        <Ionicons name="person-circle-sharp" color={color} size={size} />
                     ),
                 }}
             />
